@@ -34,13 +34,12 @@ inputs:
     {{/ifOpInputRequired}}
 {{/each}}
 {{#ifAnyOptionalInputs inputs}}
-    # begin optional params
+    # params w/ default
     {{#each inputs}}
         {{#ifOpInputOptional this}}
             {{@key}}:
         {{/ifOpInputOptional}}
     {{/each}}
-    # end optional params
 {{/ifAnyOptionalInputs}}
 outputs:
 {{#each outputs}}

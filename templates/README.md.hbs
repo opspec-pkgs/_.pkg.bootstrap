@@ -10,36 +10,36 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 
 # Example usage
 
-## install
+## Install
 
 ```shell
 opctl pkg install {{name}}#{{version}}
 ```
 
-## run
+## Run
 
 ```
 opctl run {{name}}#{{version}}
 ```
 
-## compose
+## Compose
 
 ```yaml
 op:
 pkg: { ref: {{name}}#{{version}} }
 inputs:
 {{#each inputs}}
-    {{#ifOpInputRequired this}}
-        {{@key}}:
-    {{/ifOpInputRequired}}
+{{#ifOpInputRequired this}}
+    {{@key}}:
+{{/ifOpInputRequired}}
 {{/each}}
 {{#ifAnyOptionalInputs inputs}}
     # params w/ default
-    {{#each inputs}}
-        {{#ifOpInputOptional this}}
-            {{@key}}:
-        {{/ifOpInputOptional}}
-    {{/each}}
+{{#each inputs}}
+{{#ifOpInputOptional this}}
+    {{@key}}:
+{{/ifOpInputOptional}}
+{{/each}}
 {{/ifAnyOptionalInputs}}
 outputs:
 {{#each outputs}}

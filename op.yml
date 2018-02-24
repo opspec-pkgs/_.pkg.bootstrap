@@ -25,7 +25,7 @@ run:
   - op:
       pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
       inputs: { yaml: $(srcDir/op.yml) }
-      outputs: { $(opDotYml): result }
+      outputs: { opDotYml: result }
   - op:
       pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
       inputs:
@@ -33,7 +33,7 @@ run:
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:
-        $(renderedTemplates): result
+        renderedTemplates: result
   - op:
       pkg: { ref: github.com/opspec-pkgs/fs.cp-dir#2.0.0}
       inputs:

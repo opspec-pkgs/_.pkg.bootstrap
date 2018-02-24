@@ -33,10 +33,11 @@ run:
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:
-        $(rendered): result
-  - container:
-      image: { ref: alpine }
-      cmd: [sh, -ce, cp /rendered/* /srcDir]
-      dirs:
-        /rendered: $(rendered)
-        /srcDir: $(srcDir)
+        $(renderedTemplates): result
+  - op:
+      pkg: { ref: github.com/opspec-pkgs/fs.cp-dir#2.0.0}
+      inputs:
+        src: $(renderedTemplates)
+        dst: $(srcDir)
+      outputs:
+        srcDir:

@@ -1,5 +1,5 @@
 module.exports = function (inputs, options) {
-    const isAnyOptionalInputs = Object.values(inputs).find(value => {
+    const isAnyOptionalInputs = Object.values(inputs||{}).find(value => {
         if (value.array) return value.array.default;
         if (value.dir) return value.dir.default;
         if (value.file) return value.file.default;

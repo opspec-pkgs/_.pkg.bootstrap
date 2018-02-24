@@ -25,13 +25,11 @@ run:
   - op:
       pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
       inputs: { yaml: $(srcDir/op.yml) }
-      outputs: { $(opYml): result }
+      outputs: { $(opDotYml): result }
   - op:
       pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
       inputs:
-        data:
-          opYml: $(opYml)
-          changelogMd: $(srcDir/CHANGELOG.md)
+        data: $(opDotYml)
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:

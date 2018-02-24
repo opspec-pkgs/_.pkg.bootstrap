@@ -1,5 +1,5 @@
 name: build
-description: Provisions a container image for use by the op with ref `opspecpkgs/$(opYml.name):${opYml.version}`
+description: Provisions a container image for use by the op with ref `opspecpkgs/$(opDotYml.name):${opDotYml.version}`
 inputs:
   dockerUsername:
     string:

@@ -39,5 +39,6 @@ run:
       inputs:
         src: $(renderedTemplates)
         dst: $(srcDir)
+        overwrite: 'true'
       outputs:
         srcDir:

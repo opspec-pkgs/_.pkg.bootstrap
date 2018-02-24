@@ -6,8 +6,8 @@ Internal pkg which bootstraps an official pkg.
 
 Should be applied to both new & existing pkgs to "bootstrap" them w/ the latest standards & tools.
 
-scaffolding includes:
-- enable travisci for repo
+includes:
+- enabling travisci (for pkg repo)
 - generation of `README.md` (from op.yml)
 - generation of `.opspec` directory
 - generation of `.gitignore` file

@@ -1,0 +1,50 @@
+name: github.com/opspec-pkgs/_.pkg.bootstrap
+description: |
+  Internal pkg which bootstraps an official pkg. 
+  
+  Should be applied to both new & existing pkgs to "bootstrap" them w/ the latest standards & tools.
+
+  scaffolding includes:
+  - enable travisci for repo
+  - generation of `README.md` (from op.yml)
+  - generation of `.opspec` directory
+  - generation of `.gitignore` file
+  - generation of `.travis.yml` file
+  - generation of `CODEOWNERS` file
+inputs:
+  srcDir:
+    dir:
+      description: directory containing the pkgs source code
+      default: .
+outputs:
+  srcDir:
+    dir:
+      description: directory containing the pkgs source code
+version: 1.0.0
+run:
+  serial:
+  - op:
+      pkg: { ref: github.com/opspec-pkgs/travis-ci.enable#1.0.1 }
+      inputs:
+        githubAccessToken:
+        repo: opspec-pkgs/$(name)
+  - op:
+      pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
+      inputs: { yaml: $(srcDir/op.yml) }
+      outputs: { $(opYml): result }
+  - op:
+      pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
+      inputs:
+        data:
+          opYml: $(opYml)
+          changelogMd: $(srcDir/CHANGELOG.md)
+        helpers: $(/helpers)
+        templates: $(/templates)
+      outputs:
+        $(rendered): result
+  - container:
+      image: { ref: alpine }
+      cmd: [sh, -ce, cp /rendered/* /srcDir]
+      dirs:
+        /rendered: $(rendered)
+        /srcDir: $(srcDir)

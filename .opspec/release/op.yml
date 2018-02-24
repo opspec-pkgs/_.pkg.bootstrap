@@ -1,0 +1,44 @@
+name: release
+description: releases the package
+inputs:
+  githubUsername:
+    string:
+      constraints: { minLength: 1 }
+      description: user for logging in to github
+  githubPassword:
+    string:
+      constraints: { minLength: 1 }
+      description: password for logging in to github
+      isSecret: true
+  srcDir:
+    dir:
+      default: .
+outputs:
+  srcDir:
+    dir: {}
+run:
+  serial:
+    - op:
+        pkg: { ref: build }
+        inputs:
+          srcDir:
+        outputs:
+          srcDir:
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
+        inputs: { yaml: $(srcDir/op.yml) }
+        outputs: { opDotYml: result }
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/git.repo.resolve-commit#1.0.0 }
+        inputs: { dotGitDir: $(srcDir/.git) }
+        outputs: { commit: }
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/github.release.create#1.0.0 }
+        inputs:
+          owner: opspec-pkgs
+          repo: $(opDotYml.name)
+          loginUsername: $(githubUsername)
+          loginPassword: $(githubPassword)
+          tag: $(opDotYml.version)
+          commitish: $(commit)
+          name: $(opDotYml.version)

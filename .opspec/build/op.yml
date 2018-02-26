@@ -13,7 +13,7 @@ run:
         pkg: { ref: test }
         inputs: { srcDir }
     - op:
-        pkg: { ref: github.com/opspec-pkgs/_.pkg.generate-readme#1.0.2 }
+        pkg: { ref: github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0 }
         inputs:
           srcDir:
         outputs:

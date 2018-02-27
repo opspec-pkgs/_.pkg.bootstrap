@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/_.pkg.bootstrap.svg?branch=master)](https://travis-ci.org/opspec-pkgs/_.pkg.bootstrap)
 
+
 # Problem statement
 
 Internal pkg which bootstraps an official pkg. 
@@ -20,27 +21,26 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 
 # Example usage
 
-## install
+## Install
 
 ```shell
 opctl pkg install github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0
 ```
 
-## run
+## Run
 
 ```
 opctl run github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0
 ```
 
-## compose
+## Compose
 
 ```yaml
 op:
   pkg: { ref: github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0 }
   inputs:
-    # begin optional params
+    # params w/ default
     srcDir:
-    # end optional params
   outputs:
     srcDir:
 ```

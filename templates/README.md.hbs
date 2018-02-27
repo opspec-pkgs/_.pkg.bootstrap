@@ -30,25 +30,25 @@ opctl run {{name}}#{{version}}
 
 ```yaml
 op:
-pkg: { ref: {{name}}#{{version}} }
-inputs:
-{{#each inputs}}
-{{#ifOpInputRequired this}}
+  pkg: { ref: {{name}}#{{version}} }
+  inputs:
+  {{#each inputs}}
+  {{#ifOpInputRequired this}}
     {{@key}}:
-{{/ifOpInputRequired}}
-{{/each}}
-{{#ifAnyOptionalInputs inputs}}
+  {{/ifOpInputRequired}}
+  {{/each}}
+  {{#ifAnyOptionalInputs inputs}}
     # params w/ default
-{{#each inputs}}
-{{#ifOpInputOptional this}}
+  {{#each inputs}}
+  {{#ifOpInputOptional this}}
     {{@key}}:
-{{/ifOpInputOptional}}
-{{/each}}
-{{/ifAnyOptionalInputs}}
-outputs:
-{{#each outputs}}
+  {{/ifOpInputOptional}}
+  {{/each}}
+  {{/ifAnyOptionalInputs}}
+  outputs:
+  {{#each outputs}}
     {{@key}}:
-{{/each}}
+  {{/each}}
 ```
 
 # Support

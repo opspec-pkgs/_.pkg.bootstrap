@@ -31,6 +31,7 @@ opctl run {{name}}#{{version}}
 ```yaml
 op:
   pkg: { ref: {{name}}#{{version}} }
+  {{#if inputs}}
   inputs:
   {{#each inputs}}
   {{#ifOpInputRequired this}}
@@ -45,10 +46,13 @@ op:
   {{/ifOpInputOptional}}
   {{/each}}
   {{/ifAnyOptionalInputs}}
+  {{/if}}
+  {{#if outputs}}
   outputs:
   {{#each outputs}}
     {{@key}}:
   {{/each}}
+  {{/if}}
 ```
 
 # Support

@@ -23,13 +23,19 @@ version: 1.0.0
 run:
   serial:
   - op:
+      pkg: { ref: github.com/opspec-pkgs/dir.list-contents#1.0.0 }
+      inputs: { dir: $(srcDir) }
+      outputs: { opContentList: contentList }
+  - op:
       pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
       inputs: { yaml: $(srcDir/op.yml) }
-      outputs: { opDotYml: result }
+      outputs: { opYml: result }
   - op:
       pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
       inputs:
-        data: $(opDotYml)
+        data: 
+          opYml: $(opYml)
+          opContentList: $(opContentList)
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:

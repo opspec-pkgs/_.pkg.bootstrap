@@ -1,12 +1,12 @@
-[![Build Status]({{travisUrl name}}.svg?branch=master)]({{travisUrl name}})
+[![Build Status]({{travisUrl opYml.name}}.svg?branch=master)]({{travisUrl opYml.name}})
 
-{{#if icon}}
-<img src="{{iconUrl icon}}" alt="icon" height="100px">
-{{/if}}
+{{#ifIconSvgExists contentList}}
+<img src="icon.svg" alt="icon" height="100px">
+{{/ifIconSvgExists}}
 
 # Problem statement
 
-{{{description}}}
+{{{opYml.description}}}
 
 # Format
 
@@ -17,39 +17,39 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 ## Install
 
 ```shell
-opctl pkg install {{name}}#{{version}}
+opctl pkg install {{opYml.name}}#{{opYml.version}}
 ```
 
 ## Run
 
 ```
-opctl run {{name}}#{{version}}
+opctl run {{opYml.name}}#{{opYml.version}}
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: {{name}}#{{version}} }
-  {{#if inputs}}
+  pkg: { ref: {{opYml.name}}#{{opYml.version}} }
+  {{#if opYml.inputs}}
   inputs:
-  {{#each inputs}}
+  {{#each opYml.inputs}}
   {{#ifOpInputRequired this}}
     {{@key}}:
   {{/ifOpInputRequired}}
   {{/each}}
   {{#ifAnyOptionalInputs inputs}}
     # params w/ default
-  {{#each inputs}}
+  {{#each opYml.inputs}}
   {{#ifOpInputOptional this}}
     {{@key}}:
   {{/ifOpInputOptional}}
   {{/each}}
   {{/ifAnyOptionalInputs}}
   {{/if}}
-  {{#if outputs}}
+  {{#if opYml.outputs}}
   outputs:
-  {{#each outputs}}
+  {{#each opYml.outputs}}
     {{@key}}:
   {{/each}}
   {{/if}}
@@ -60,7 +60,7 @@ op:
 join us on
 [![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
 or
-[open an issue](https://{{name}}/issues)
+[open an issue](https://{{opYml.name}}/issues)
 
 # Releases
 

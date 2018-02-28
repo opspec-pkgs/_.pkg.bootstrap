@@ -34,8 +34,8 @@ run:
       pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
       inputs:
         data: 
-          opYml: $(opYml)
-          opContentList: $(opContentList)
+          opYml:
+          opContentList:
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:

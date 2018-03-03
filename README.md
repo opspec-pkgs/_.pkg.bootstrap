@@ -38,6 +38,8 @@ opctl run github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0
 op:
   pkg: { ref: github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0 }
   inputs:
+    # params w/ default
+    srcDir:
   outputs:
     srcDir:
 ```

@@ -38,7 +38,7 @@ op:
     {{@key}}:
   {{/ifOpInputRequired}}
   {{/each}}
-  {{#ifAnyOptionalInputs inputs}}
+  {{#ifAnyOptionalInputs opYml.inputs}}
     # params w/ default
   {{#each opYml.inputs}}
   {{#ifOpInputOptional this}}

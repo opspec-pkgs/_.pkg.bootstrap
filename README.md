@@ -2,7 +2,7 @@
 
 # Problem statement
 
-Internal pkg which bootstraps an official pkg. 
+Internal pkg for opspec-pkgs/maintainers which bootstraps an official pkg. 
 
 Should be applied to both new & existing pkgs to "bootstrap" them w/ the latest standards & tools.
 

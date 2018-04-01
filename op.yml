@@ -30,18 +30,12 @@ run:
       pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
       inputs: { yaml: $(srcDir/op.yml) }
       outputs: { opYml: result }
-  - container:
-      image: { ref: 'node:9.5.0-alpine' }
-      cmd: [node, /cmd.js]
-      files:
-        /cmd.js: 
-        /opYml.json: $(opYml)
-        /opContentList.json: $(opContentList)
-        /data: $(data)
   - op:
       pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
       inputs:
         data:
+          opYml:
+          contentList: $(opContentList)
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:

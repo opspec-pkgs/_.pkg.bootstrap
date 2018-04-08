@@ -6,5 +6,5 @@ inputs:
       default: .
 run:
   op:
-    ref: github.com/opspec-pkgs/opspec.op.validate#2.0.0
+    ref: github.com/opspec-pkgs/opspec.v0.1.6.op.validate#1.0.0
     inputs: { op: $(srcDir) }

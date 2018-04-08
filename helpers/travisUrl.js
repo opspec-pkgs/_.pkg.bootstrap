@@ -1,3 +1,3 @@
-module.exports = (pkgName) => {
-    return `https://travis-ci.org${pkgName.slice("github.com".length)}`;
+module.exports = (opName) => {
+    return `https://travis-ci.org${opName.slice("github.com".length)}`;
 }

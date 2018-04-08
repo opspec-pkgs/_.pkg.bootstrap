@@ -23,13 +23,13 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0
+opctl pkg install github.com/opspec-pkgs/_.op.bootstrap#2.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0
+opctl run github.com/opspec-pkgs/_.pkg.bootstrap#2.0.0
 ```
 
 ## Compose

@@ -10,14 +10,14 @@
 
 # Format
 
-this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
+the op uses [![opspec {{opspecVersion opYml.opspec}}](https://img.shields.io/badge/opspec-{{opspecVersion opYml.opspec}}-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io) definition format
 
 # Example usage
 
 ## Install
 
 ```shell
-opctl pkg install {{opYml.name}}#{{opYml.version}}
+opctl op install {{opYml.name}}#{{opYml.version}}
 ```
 
 ## Run
@@ -30,7 +30,7 @@ opctl run {{opYml.name}}#{{opYml.version}}
 
 ```yaml
 op:
-  pkg: { ref: {{opYml.name}}#{{opYml.version}} }
+  ref: {{opYml.name}}#{{opYml.version}}
   {{#if opYml.inputs}}
   inputs:
   {{#each opYml.inputs}}

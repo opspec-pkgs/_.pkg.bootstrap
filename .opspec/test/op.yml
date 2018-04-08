@@ -1,10 +1,10 @@
 name: test
-description: tests the package
+description: tests the op
 inputs:
   srcDir:
     dir:
       default: .
 run:
   op:
-    pkg: { ref: github.com/opspec-pkgs/opspec.op.validate#2.0.0 }
+    ref: github.com/opspec-pkgs/opspec.op.validate#2.0.0
     inputs: { op: $(srcDir) }

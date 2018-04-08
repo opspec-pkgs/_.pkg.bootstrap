@@ -1,8 +1,7 @@
-name: github.com/opspec-pkgs/_.pkg.bootstrap
+name: github.com/opspec-pkgs/_.op.bootstrap
 description: |
-  Internal pkg for opspec-pkgs/maintainers which bootstraps an official pkg. 
-  
-  Should be applied to both new & existing pkgs to "bootstrap" them w/ the latest standards & tools.
+  Internal op for [opspec-pkgs/maintainers](https://github.com/orgs/opspec-pkgs/teams/maintainers) 
+  applied to ops (new & existing) to "bootstrap" them w/ latest standards & ops.
 
   includes:
   - generation of `README.md` (from op.yml)
@@ -13,25 +12,25 @@ description: |
 inputs:
   srcDir:
     dir:
-      description: directory containing the pkgs source code
+      description: directory containing the ops source code
       default: .
 outputs:
   srcDir:
     dir:
-      description: directory containing the pkgs source code
-version: 1.0.0
+      description: directory containing the ops source code
+version: 2.0.0
+opspec: 0.1.6
 run:
   serial:
-  - op:
-      pkg: { ref: github.com/opspec-pkgs/dir.list-contents#1.0.0 }
+  - op as listOpContents:
+      ref: github.com/opspec-pkgs/dir.list-contents#1.0.0
       inputs: { dir: $(srcDir) }
-      outputs: { opContentList: contentList }
   - op:
-      pkg: { ref: github.com/opspec-pkgs/yaml.parse#1.0.0 }
+      ref: github.com/opspec-pkgs/yaml.parse#1.0.0
       inputs: { yaml: $(srcDir/op.yml) }
       outputs: { opYml: result }
   - op:
-      pkg: { ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0 }
+      ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0
       inputs:
         data:
           opYml:
@@ -41,7 +40,7 @@ run:
       outputs:
         renderedTemplates: result
   - op:
-      pkg: { ref: github.com/opspec-pkgs/fs.cp-dir#2.0.0}
+      ref: github.com/opspec-pkgs/fs.cp-dir#2.0.0
       inputs:
         src: $(renderedTemplates)
         dst: $(srcDir)

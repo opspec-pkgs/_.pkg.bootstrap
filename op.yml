@@ -22,9 +22,10 @@ version: 2.0.0
 opspec: 0.1.6
 run:
   serial:
-  - op as listOpContents:
+  - op:
       ref: github.com/opspec-pkgs/dir.list-contents#1.0.0
       inputs: { dir: $(srcDir) }
+      outputs: { opContentList: contentList }
   - op:
       ref: github.com/opspec-pkgs/yaml.parse#1.0.0
       inputs: { yaml: $(srcDir/op.yml) }

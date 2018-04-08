@@ -1,10 +1,9 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/_.pkg.bootstrap.svg?branch=master)](https://travis-ci.org/opspec-pkgs/_.pkg.bootstrap)
+[![Build Status](https://travis-ci.org/opspec-pkgs/_.op.bootstrap.svg?branch=master)](https://travis-ci.org/opspec-pkgs/_.op.bootstrap)
 
 # Problem statement
 
-Internal pkg for opspec-pkgs/maintainers which bootstraps an official pkg. 
-
-Should be applied to both new & existing pkgs to "bootstrap" them w/ the latest standards & tools.
+Internal op for [opspec-pkgs/maintainers](https://github.com/orgs/opspec-pkgs/teams/maintainers) 
+applied to ops (new & existing) to "bootstrap" them w/ latest standards & ops.
 
 includes:
 - generation of `README.md` (from op.yml)
@@ -16,27 +15,27 @@ includes:
 
 # Format
 
-this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
+this version of the op is in [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.6) op definition format
 
 # Example usage
 
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/_.op.bootstrap#2.0.0
+opctl op install github.com/opspec-pkgs/_.op.bootstrap#2.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/_.pkg.bootstrap#2.0.0
+opctl run github.com/opspec-pkgs/_.op.bootstrap#2.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/_.pkg.bootstrap#1.0.0 }
+  pkg: { ref: github.com/opspec-pkgs/_.op.bootstrap#1.0.0 }
   inputs:
     # params w/ default
     srcDir:

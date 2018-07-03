@@ -15,27 +15,27 @@ includes:
 
 # Format
 
-this version of the op is in [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.6) op definition format
+the op uses [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.6) definition format
 
 # Example usage
 
 ## Install
 
 ```shell
-opctl op install github.com/opspec-pkgs/_.op.bootstrap#2.0.0
+opctl op install github.com/opspec-pkgs/_.op.bootstrap#2.0.1
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/_.op.bootstrap#2.0.0
+opctl run github.com/opspec-pkgs/_.op.bootstrap#2.0.1
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/_.op.bootstrap#1.0.0 }
+  ref: github.com/opspec-pkgs/_.op.bootstrap#2.0.1
   inputs:
     # params w/ default
     srcDir:
@@ -46,9 +46,9 @@ op:
 # Support
 
 join us on
-[![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
+[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
 or
-[open an issue](https://github.com/opspec-pkgs/_.pkg.bootstrap/issues)
+[open an issue](https://github.com/opspec-pkgs/_.op.bootstrap/issues)
 
 # Releases
 

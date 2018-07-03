@@ -1,6 +1,6 @@
-name: build
+name: provision-image
 description: |
-  Provisions image for the op w/ name `opspecpkgs/$(opDotYml.name):${opDotYml.version}`.
+  Provisions image for the op to [opspecpkgs docker hub org](https://hub.docker.com/u/opspecpkgs) w/ name `opspecpkgs/$(opDotYml.name):${opDotYml.version}`.
   
   > Before first use, a Dockerfile MUST be added to `.opspec/provision-image`
 inputs:
@@ -16,6 +16,7 @@ inputs:
   srcDir:
     dir:
       default: .
+opspec: 0.1.6
 run:
   serial:
     - op:

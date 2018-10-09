@@ -1,6 +1,7 @@
 module.exports = function (input, options) {
     let isOptional;
     if (input.array) isOptional = input.array.default;
+    if (input.boolean) isOptional = input.boolean.default;
     if (input.dir) isOptional = input.dir.default;
     if (input.file) isOptional = input.file.default;
     if (input.number) isOptional = input.number.default;

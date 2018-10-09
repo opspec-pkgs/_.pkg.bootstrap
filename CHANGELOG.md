@@ -5,6 +5,18 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[2.1.0] - 2018-10-08
+
+### Added 
+
+- boolean param support in README.md generation
+
+## \[2.0.1] - 2018-07-08
+
+### Fixed 
+
+- slack link
+
 ## \[2.0.0] - 2018-04-08
 
 ### Added 

@@ -1,6 +1,7 @@
 module.exports = function (inputs, options) {
     const isAnyOptionalInputs = Object.values(inputs||{}).find(value => {
         if (value.array) return value.array.default;
+        if (value.boolean) return value.boolean.default !== undefined;
         if (value.dir) return value.dir.default;
         if (value.file) return value.file.default;
         if (value.number) return value.number.default;

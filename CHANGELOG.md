@@ -5,6 +5,16 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[2.2.0] - 2019-01-28
+
+### Added
+
+- defaults for optional inputs
+
+### Fixed 
+
+- boolean params shown in both optional & required params
+
 ## \[2.1.0] - 2018-10-08
 
 ### Added 

@@ -33,16 +33,19 @@ op:
   ref: {{opYml.name}}#{{opYml.version}}
   {{#if opYml.inputs}}
   inputs:
+  {{#ifAnyRequiredInputs opYml.inputs}}
+    # required
   {{#each opYml.inputs}}
   {{#ifOpInputRequired this}}
     {{@key}}:
   {{/ifOpInputRequired}}
   {{/each}}
+  {{/ifAnyRequiredInputs}}
   {{#ifAnyOptionalInputs opYml.inputs}}
-    # params w/ default
+    ### optional; uncomment to override default(s)
   {{#each opYml.inputs}}
   {{#ifOpInputOptional this}}
-    {{@key}}:
+    # {{@key}}: {{opInputDefault this}}
   {{/ifOpInputOptional}}
   {{/each}}
   {{/ifAnyOptionalInputs}}

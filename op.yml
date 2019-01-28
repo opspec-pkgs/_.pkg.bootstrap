@@ -18,7 +18,7 @@ outputs:
   srcDir:
     dir:
       description: directory containing the ops source code
-version: 2.1.0
+version: 2.2.0
 opspec: 0.1.6
 run:
   serial:
@@ -26,6 +26,10 @@ run:
       ref: github.com/opspec-pkgs/dir.list-contents#1.0.0
       inputs: { dir: $(srcDir) }
       outputs: { opContentList: contentList }
+  - op:
+      ref: github.com/opspec-pkgs/yaml.parse#1.0.0
+      inputs: { yaml: $(/op.yml) }
+      outputs: { bootstrapOpYml: result }
   - op:
       ref: github.com/opspec-pkgs/yaml.parse#1.0.0
       inputs: { yaml: $(srcDir/op.yml) }
@@ -36,6 +40,7 @@ run:
         data:
           opYml:
           contentList: $(opContentList)
+          bootstrapOpVersion: $(bootstrapOpYml.version)
         helpers: $(/helpers)
         templates: $(/templates)
       outputs:

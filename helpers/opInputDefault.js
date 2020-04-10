@@ -6,5 +6,5 @@ module.exports = input => {
   if (input.number) return input.number.default;
   if (input.object) return input.object.default;
   if (input.socket) return input.socket.default;
-  if (input.string) return input.string.default;
+  if (input.string) return `\"${input.string.default}\"`;
 }

@@ -32,20 +32,22 @@ opctl run {{opYml.name}}#{{opYml.version}}
 op:
   ref: {{opYml.name}}#{{opYml.version}}
   {{#if opYml.inputs}}
-  inputs:
   {{#ifAnyRequiredInputs opYml.inputs}}
-    # required
+  inputs:
   {{#each opYml.inputs}}
   {{#ifOpInputRequired this}}
-    {{@key}}:
+    {{@key}}:  # 👈 required; provide a value
   {{/ifOpInputRequired}}
   {{/each}}
   {{/ifAnyRequiredInputs}}
   {{#ifAnyOptionalInputs opYml.inputs}}
-    ### optional; uncomment to override default(s)
+  ## uncomment to override defaults
+  {{#ifNoRequiredInputs opYml.inputs}}
+  # inputs:
+  {{/ifNoRequiredInputs}}
   {{#each opYml.inputs}}
   {{#ifOpInputOptional this}}
-    # {{@key}}: {{opInputDefault this}}
+  #   {{@key}}: {{{opInputDefault this}}}
   {{/ifOpInputOptional}}
   {{/each}}
   {{/ifAnyOptionalInputs}}

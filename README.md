@@ -22,23 +22,22 @@ the op uses [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgre
 ## Install
 
 ```shell
-opctl op install github.com/opspec-pkgs/_.op.bootstrap#2.2.1
+opctl op install github.com/opspec-pkgs/_.op.bootstrap#2.2.2
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/_.op.bootstrap#2.2.1
+opctl run github.com/opspec-pkgs/_.op.bootstrap#2.2.2
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/_.op.bootstrap#2.2.1
+  ref: github.com/opspec-pkgs/_.op.bootstrap#2.2.2
   inputs:
-    ### optional; uncomment to override default(s)
-    # srcDir: .
+    srcDir:  # 👈 required; provide a value
   outputs:
     srcDir:
 ```

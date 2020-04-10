@@ -5,6 +5,12 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[2.2.2] - 2020-04-09
+
+### Fixed
+
+- `README.md` template doesn't treat string parameters w/ empty default as having defaults
+
 ## \[2.2.0] - 2019-01-28
 
 ### Added

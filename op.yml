@@ -7,7 +7,6 @@ description: |
   - generation of `README.md` (from op.yml)
   - generation of `.opspec` directory
   - generation of `.gitignore` file
-  - generation of `.travis.yml` file
   - generation of `CODEOWNERS` file
 inputs:
   srcDir:
@@ -18,22 +17,27 @@ outputs:
   srcDir:
     dir:
       description: directory containing the ops source code
-version: 2.2.2
-opspec: 0.1.6
+version: 3.0.0
 run:
   serial:
   - op:
       ref: github.com/opspec-pkgs/dir.list-contents#1.0.0
-      inputs: { dir: $(srcDir) }
-      outputs: { opContentList: contentList }
+      inputs:
+        dir: $(srcDir)
+      outputs:
+        contentList: $(opContentList)
   - op:
       ref: github.com/opspec-pkgs/yaml.parse#1.0.0
-      inputs: { yaml: $(/op.yml) }
-      outputs: { bootstrapOpYml: result }
+      inputs:
+        yaml: $(./op.yml)
+      outputs:
+        result: $(bootstrapOpYml)
   - op:
       ref: github.com/opspec-pkgs/yaml.parse#1.0.0
-      inputs: { yaml: $(srcDir/op.yml) }
-      outputs: { opYml: result }
+      inputs:
+        yaml: $(srcDir/op.yml)
+      outputs:
+        result: $(opYml)
   - op:
       ref: github.com/opspec-pkgs/handlebarsjs.render-dir#1.0.0
       inputs:
@@ -41,10 +45,10 @@ run:
           opYml:
           contentList: $(opContentList)
           bootstrapOpVersion: $(bootstrapOpYml.version)
-        helpers: $(/helpers)
-        templates: $(/templates)
+        helpers: $(./helpers)
+        templates: $(./templates)
       outputs:
-        renderedTemplates: result
+        result: $(renderedTemplates)
   - op:
       ref: github.com/opspec-pkgs/fs.cp-dir#2.0.0
       inputs:
@@ -52,4 +56,4 @@ run:
         dst: $(srcDir)
         overwrite: 'true'
       outputs:
-        srcDir: dst
+        dst: $(srcDir)

@@ -1,4 +1,4 @@
-[![Build Status]({{travisUrl opYml.name}}.svg?branch=master)]({{travisUrl opYml.name}})
+[![Build Status](https://{{opYml.name}}/workflows/push/badge.svg?branch=master)](https://{{opYml.name}}/actions?query=workflow%3ABuild+branch%3Amaster)
 {{#ifIconSvgExists contentList}}
 
 <img src="icon.svg" alt="icon" height="100px">
@@ -8,16 +8,12 @@
 
 {{{opYml.description}}}
 
-# Format
-
-the op uses [![opspec {{opspecVersion opYml.opspec}}](https://img.shields.io/badge/opspec-{{opspecVersion opYml.opspec}}-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/{{opspecVersion opYml.opspec}}) definition format
-
 # Example usage
 
-## Install
+## Visualize
 
 ```shell
-opctl op install {{opYml.name}}#{{opYml.version}}
+opctl ui {{opYml.name}}#{{opYml.version}}
 ```
 
 ## Run
@@ -63,7 +59,7 @@ op:
 # Support
 
 join us on
-[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
+[![Slack](https://img.shields.io/badge/slack-opctl-E01563.svg)](https://join.slack.com/t/opctl/shared_invite/zt-51zodvjn-Ul_UXfkhqYLWZPQTvNPp5w)
 or
 [open an issue](https://{{opYml.name}}/issues)
 

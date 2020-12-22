@@ -5,6 +5,11 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[3.0.0] - 2020-12-21
+
+### Changed
+- travis => github actions, dockerhub => github packages, latest opspec
+
 ## \[2.2.2] - 2020-04-09
 
 ### Fixed

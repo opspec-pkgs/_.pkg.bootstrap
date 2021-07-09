@@ -17,20 +17,20 @@ includes:
 ## Visualize
 
 ```shell
-opctl ui github.com/opspec-pkgs/_.op.bootstrap#3.0.0
+opctl ui github.com/opspec-pkgs/_.op.bootstrap#4.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/_.op.bootstrap#3.0.0
+opctl run github.com/opspec-pkgs/_.op.bootstrap#4.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/_.op.bootstrap#3.0.0
+  ref: github.com/opspec-pkgs/_.op.bootstrap#4.0.0
   ## uncomment to override defaults
   # inputs:
   #   srcDir: .

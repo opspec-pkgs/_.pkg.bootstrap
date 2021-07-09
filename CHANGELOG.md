@@ -5,6 +5,11 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[4.0.0] - 2021-07-09
+
+### Changed
+- generated provision-image op now uses github container registry instead of docker hub. This simplifies permissioning.
+
 ## \[3.0.0] - 2020-12-21
 
 ### Changed
